@@ -51,6 +51,10 @@
     "hex": "hexadecimálna farba"
   },
   "config": {
+    "adminPassword": {
+      "invalid": "Neplatné heslo. Skúste prosím znova.",
+      "title": "Potenciálne nebezpečná operácia"
+    },
     "apiKey": {
       "description": "Poskytnite skriptom a automatizačným úlohám, ako sú plánované zálohy, zabezpečený prístup bez zdieľania hesla správcu.",
       "exampleLabel": "Vyskúšajte to: stiahnite si zálohu pomocou curl",
@@ -253,7 +257,7 @@
     },
     "general": {
       "applyAndClose": "Použiť a zatvoriť",
-      "authPerform": "Pripojte sa k {provider}",
+      "authPerform": "Pripojte sa s {provider}",
       "authPerformHint": "Otvorí sa v novej karte. Pre pokračovanie sa vráťte sem.",
       "authPrepare": "Pripraviť spojenie",
       "cancel": "Zrušiť",
