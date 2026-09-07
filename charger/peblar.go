@@ -28,7 +28,6 @@ import (
 	"github.com/evcc-io/evcc/api/implement"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/volkszaehler/mbmd/encoding"
 )
 
@@ -90,10 +89,6 @@ func NewPeblar(ctx context.Context, settings modbus.TcpSettings) (api.Charger, e
 	conn, err := settings.Connection(ctx)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	// Register contains the physically connected phases

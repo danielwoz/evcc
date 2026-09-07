@@ -5,8 +5,6 @@ products:
   - brand: Schneider
     description:
       generic: EVlink Pro
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["tcpip"]

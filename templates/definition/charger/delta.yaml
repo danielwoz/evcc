@@ -14,7 +14,6 @@ products:
       generic: Ultra Fast Charger
 capabilities: ["mA", "rfid", "meter", "dim"]
 requirements:
-  evcc: ["sponsorship"]
   description:
     de: AC MAX Smart erfordert Firmware >= v01.26.38.02 für Modbus TCP via WiFi.
     en: AC MAX Smart requires firmware >= v01.26.38.02 for Modbus TCP via WiFi.

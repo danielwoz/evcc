@@ -27,7 +27,6 @@ import (
 	"github.com/evcc-io/evcc/api/implement"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 )
 
 // ABLeMH charger implementation
@@ -98,10 +97,6 @@ func NewABLeMH(ctx context.Context, settings modbus.Settings) (api.Charger, erro
 	conn, err := settings.Connection(ctx, modbus.Ascii)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	log := util.NewLogger("abl")

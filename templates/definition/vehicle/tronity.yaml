@@ -3,8 +3,6 @@ products:
   - description:
       generic: Tronity
 group: generic
-requirements:
-  evcc: ["sponsorship"]
 params:
   - preset: vehicle-common
   - preset: vehicle-online

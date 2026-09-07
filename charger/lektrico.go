@@ -59,7 +59,6 @@ import (
 	"github.com/evcc-io/evcc/api"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 )
 
 // lektricoStateBAUTH is the extended state indicating waiting for RFID authentication
@@ -125,10 +124,6 @@ func NewLektricoFromConfig(other map[string]any) (api.Charger, error) {
 
 	if cc.Host == "" {
 		return nil, fmt.Errorf("missing host")
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	return NewLektrico(cc.Host, cc.Cache)

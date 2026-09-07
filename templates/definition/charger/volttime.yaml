@@ -13,8 +13,6 @@ products:
     description:
       generic: One
 capabilities: ["meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: token
     required: true

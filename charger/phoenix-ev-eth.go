@@ -31,7 +31,6 @@ import (
 	"github.com/evcc-io/evcc/api/implement"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/volkszaehler/mbmd/encoding"
 )
 
@@ -87,10 +86,6 @@ func NewPhoenixEVEth(ctx context.Context, settings modbus.TcpSettings, milliCurr
 	conn, err := settings.Connection(ctx)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	log := util.NewLogger("ev-eth")

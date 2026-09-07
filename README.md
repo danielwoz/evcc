@@ -1,5 +1,7 @@
 # evcc 🚘☀️
 
+> **PorscheEVCC** — a fork of evcc that runs without a subscription requirement. (Native Porsche support has since been contributed upstream to evcc.)
+
 [![Build](https://github.com/evcc-io/evcc/actions/workflows/nightly.yml/badge.svg)](https://github.com/evcc-io/evcc/actions/workflows/nightly.yml)
 [![Statuspage](https://img.shields.io/badge/status-evcc.io-green?color=brightgreen&link=https%3A%2F%2Fstatus.evcc.io)](https://status.evcc.io/)
 [![Translation](https://hosted.weblate.org/widgets/evcc/-/evcc/svg-badge.svg)](https://hosted.weblate.org/engage/evcc/)

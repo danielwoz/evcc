@@ -27,7 +27,6 @@ import (
 	"github.com/evcc-io/evcc/charger/shelly"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/evcc-io/evcc/util/transport"
 )
 
@@ -60,9 +59,6 @@ func NewShellyTopACFromConfig(other map[string]any) (api.Charger, error) {
 
 // NewShellyTopAC creates Shelly Top AC charger
 func NewShellyTopAC(uri, user, password string) (api.Charger, error) {
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
-	}
 
 	// normalize URI
 	for _, suffix := range []string{"/", "/rpc", "/shelly"} {

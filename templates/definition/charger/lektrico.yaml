@@ -4,8 +4,6 @@ products:
     description:
       generic: 1P7K / 3P22K Charging Station
 capabilities: ["meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: host
   - name: cache

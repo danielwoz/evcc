@@ -28,7 +28,6 @@ import (
 	"github.com/evcc-io/evcc/core/loadpoint"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 )
 
 // Ego charger implementation for E.G.O. Smart Heater
@@ -85,10 +84,6 @@ func NewEgo(ctx context.Context, embed *embed, settings modbus.TcpSettings) (api
 	conn, err := settings.Connection(ctx)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	log := util.NewLogger("ego")

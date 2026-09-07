@@ -45,7 +45,6 @@ import (
 	"github.com/evcc-io/evcc/api"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/sirupsen/logrus"
 	"github.com/spali/go-rscp/rscp"
 	"github.com/spf13/cast"
@@ -132,10 +131,6 @@ func NewE3dc(ctx context.Context, cfg rscp.ClientConfig, id uint8) (*E3dc, error
 	conn, err := rscp.NewClient(cfg)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	wb := &E3dc{

@@ -10,8 +10,6 @@ products:
     description:
       generic: Wallbox pro
 capabilities: ["mA", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["rs485"]

@@ -13,8 +13,6 @@ products:
     description:
       generic: Charge Core
 capabilities: ["rfid", "1p3p", "meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 caveats:
   - description:
       de: Seltene Energie-Updates können Ladehistorie und Sitzungsstatistik verfälschen.

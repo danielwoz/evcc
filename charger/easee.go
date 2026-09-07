@@ -33,7 +33,6 @@ import (
 	"github.com/evcc-io/evcc/core/loadpoint"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/philippseith/signalr"
 	"github.com/samber/lo"
 	"golang.org/x/oauth2"
@@ -109,10 +108,6 @@ func NewEaseeFromConfig(ctx context.Context, other map[string]any) (api.Charger,
 // NewEasee creates Easee charger
 func NewEasee(ctx context.Context, user, password, charger string, timeout time.Duration, authorize bool) (*Easee, error) {
 	log := util.NewLogger("easee").Redact(user, password)
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
-	}
 
 	done := make(chan struct{})
 

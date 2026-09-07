@@ -31,7 +31,6 @@ import (
 	"github.com/evcc-io/evcc/charger/ocpp"
 	"github.com/evcc-io/evcc/core/loadpoint"
 	"github.com/evcc-io/evcc/util"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/lorenzodonini/ocpp-go/ocpp1.6/core"
 	"github.com/lorenzodonini/ocpp-go/ocpp1.6/types"
 )
@@ -99,10 +98,6 @@ func NewOCPPFromConfig(ctx context.Context, other map[string]any) (api.Charger, 
 		cc.ConnectTimeout)
 	if err != nil {
 		return c, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	if c.cp.HasMeasurement(types.MeasurandPowerActiveImport) {

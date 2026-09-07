@@ -32,7 +32,6 @@ import (
 	"github.com/evcc-io/evcc/charger/zaptec"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/evcc-io/evcc/util/transport"
 	"golang.org/x/oauth2"
 )
@@ -92,10 +91,6 @@ func NewZaptecFromConfig(ctx context.Context, other map[string]any) (api.Charger
 // NewZaptec creates Zaptec charger
 func NewZaptec(ctx context.Context, user, password, id string, priority bool, passive bool, cache time.Duration, startPrevention bool) (api.Charger, error) {
 	log := util.NewLogger("zaptec").Redact(user, password)
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
-	}
 
 	c := &Zaptec{
 		Helper:          request.NewHelper(log),

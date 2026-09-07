@@ -562,7 +562,7 @@
 				<ExperimentalModal :experimental="experimental" />
 				<RemoteModal :remote="remote" :is-sponsor="isSponsor" :site-title="siteTitle" />
 				<TitleModal @changed="loadDirty" />
-				<ModbusProxyModal :is-sponsor="isSponsor" @changed="loadDirty" />
+				<ModbusProxyModal @changed="loadDirty" />
 				<CircuitsModal :gridMeter="gridMeter" :extMeters="extMeters" @changed="loadDirty" />
 				<EebusModal
 					:status="eebus?.status"
