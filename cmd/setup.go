@@ -629,12 +629,26 @@ func configureVehicles(static []config.Named, names ...string) error {
 }
 
 func configureSponsorship(token string) (err error) {
-	if settings.Exists(keys.SponsorToken) {
-		if token, err = settings.String(keys.SponsorToken); err != nil {
-			return err
+	// always refresh the trial sponsor token from the web before anything runs.
+	// on failure we warn and fall back to any configured token / unsponsored mode.
+	if trial, terr := sponsor.TrialToken(); terr != nil {
+		log.WARN.Printf("trial sponsor token: %v", terr)
+
+		if settings.Exists(keys.SponsorToken) {
+			if token, err = settings.String(keys.SponsorToken); err != nil {
+				return err
+			}
+		} else if token != "" {
+			yamlSource.sponsor = globalconfig.YamlSourceFile
 		}
-	} else if token != "" {
-		yamlSource.sponsor = globalconfig.YamlSourceFile
+	} else {
+		token = trial
+		conf.SponsorToken = trial
+		settings.SetString(keys.SponsorToken, trial)
+		if perr := settings.Persist(); perr != nil {
+			log.WARN.Printf("persisting trial sponsor token: %v", perr)
+		}
+		log.INFO.Println("using trial sponsor token from", sponsor.TrialTokenURL)
 	}
 
 	return sponsor.ConfigureSponsorship(token)

@@ -147,8 +147,10 @@ func RedactedStatus() Status {
 	mu.RLock()
 	defer mu.RUnlock()
 
+	// the trial token is re-fetched fresh on every startup, so it never
+	// meaningfully "expires soon" - don't raise the expiry warning for it
 	var expiresSoon bool
-	if d := time.Until(ExpiresAt); d < 30*24*time.Hour && d > 0 {
+	if d := time.Until(ExpiresAt); Subject != trialSubject && d < 30*24*time.Hour && d > 0 {
 		expiresSoon = true
 	}
 
