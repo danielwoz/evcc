@@ -153,9 +153,10 @@ func RedactedStatus() Status {
 	mu.RLock()
 	defer mu.RUnlock()
 
-	// hardware tokens are renewed on every start, no expiry warning
+	// hardware tokens are renewed on every start, and the trial token is
+	// re-fetched fresh on every startup, so neither raises the expiry warning
 	var expiresSoon bool
-	if d := time.Until(ExpiresAt); d < 30*24*time.Hour && d > 0 && !Hardware {
+	if d := time.Until(ExpiresAt); d < 30*24*time.Hour && d > 0 && !Hardware && Subject != trialSubject {
 		expiresSoon = true
 	}
 
