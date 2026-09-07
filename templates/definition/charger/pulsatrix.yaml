@@ -2,8 +2,6 @@ template: pulsatrix
 products:
   - brand: Pulsatrix
 capabilities: ["meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: host #IP address or hostname (can be found on 3rd page of SECC display)
     help:

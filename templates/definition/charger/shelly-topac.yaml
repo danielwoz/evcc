@@ -8,7 +8,6 @@ requirements:
   description:
     de: "'auto_charge' muss auf false gesetzt werden."
     en: "'auto_charge' must be set to false."
-  evcc: ["sponsorship"]
 params:
   - name: host
   - name: user

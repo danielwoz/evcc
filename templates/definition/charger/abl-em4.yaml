@@ -7,8 +7,6 @@ products:
     description:
       generic: eM4 Twin (SBCx)
 capabilities: ["mA", "meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["tcpip"]

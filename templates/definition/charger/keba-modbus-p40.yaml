@@ -8,7 +8,6 @@ products:
       generic: KeContact P40 Pro
 capabilities: ["mA", "rfid", "1p3p", "dim"]
 requirements:
-  evcc: ["sponsorship"]
   description:
     de: |
       Folgende Einstellungen müssen in der KEBA eMobility App vorgenommen werden:

@@ -29,7 +29,6 @@ import (
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/oauth"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/samber/lo"
 	"golang.org/x/oauth2"
 )
@@ -85,10 +84,6 @@ func NewNexblueFromConfig(ctx context.Context, other map[string]any) (api.Charge
 // NewNexblue creates Nexblue charger
 func NewNexblue(ctx context.Context, user, password, serial string, cache time.Duration) (api.Charger, error) {
 	log := util.NewLogger("nexblue").Redact(user, password)
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
-	}
 
 	wb := &Nexblue{
 		Helper: request.NewHelper(log),

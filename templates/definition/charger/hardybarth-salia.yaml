@@ -14,7 +14,6 @@ products:
       generic: cPμ2
 capabilities: ["dim"]
 requirements:
-  evcc: ["sponsorship"]
   description:
     de: >-
       Wenn du ohne Benutzername und Passwort die Meldung '401 (Unauthorized)' bekommst,

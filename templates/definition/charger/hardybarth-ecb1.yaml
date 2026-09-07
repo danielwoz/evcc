@@ -8,7 +8,6 @@ products:
       generic: cPH1
 capabilities: ["meter", "dim"]
 requirements:
-  evcc: ["sponsorship"]
   description:
     de: Als Betriebsmodus muss `manual` ausgewählt sein
     en: Charge mode must be configured as `manual`

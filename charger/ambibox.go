@@ -28,7 +28,6 @@ import (
 	"github.com/evcc-io/evcc/api"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/volkszaehler/mbmd/encoding"
 )
 
@@ -104,10 +103,6 @@ func NewAmbiboxFromConfig(ctx context.Context, other map[string]any) (api.Charge
 
 	if cc.Connector < 1 || cc.Connector > 10 {
 		return nil, fmt.Errorf("invalid connector: %d", cc.Connector)
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	return NewAmbibox(ctx, cc.TcpSettings, cc.Connector)

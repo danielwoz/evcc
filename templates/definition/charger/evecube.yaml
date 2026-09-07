@@ -8,7 +8,6 @@ requirements:
   description:
     en: Requires HTTP API access.
     de: Benötigt HTTP-API-Zugriff
-  evcc: ["sponsorship"]
 params:
   - name: host
     help:

@@ -9,8 +9,6 @@ products:
     description:
       generic: AMTRON Premium
     capabilities: ["rfid"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["tcpip"]

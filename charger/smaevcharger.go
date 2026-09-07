@@ -28,7 +28,6 @@ import (
 	"github.com/evcc-io/evcc/charger/smaevcharger"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/hashicorp/go-version"
 	"golang.org/x/oauth2"
 )
@@ -89,10 +88,6 @@ func NewSmaevcharger(uri, user, password string, cache time.Duration) (api.Charg
 		log:    log,
 		uri:    util.DefaultScheme(strings.TrimRight(uri, "/"), "http") + "/api/v1",
 		cache:  cache,
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	// setup cached values

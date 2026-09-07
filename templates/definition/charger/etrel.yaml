@@ -8,7 +8,6 @@ products:
       generic: sonnenCharger
 capabilities: ["mA", "meter", "dim"]
 requirements:
-  evcc: ["sponsorship"]
   description:
     de: Die Wallbox muss sich im "Power" Modus befinden.
     en: The charger must be switched to "Power" charging mode.

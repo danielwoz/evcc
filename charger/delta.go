@@ -28,7 +28,6 @@ import (
 	"github.com/evcc-io/evcc/core/loadpoint"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/volkszaehler/mbmd/encoding"
 )
 
@@ -104,10 +103,6 @@ func NewDelta(ctx context.Context, settings modbus.Settings, connector uint16) (
 	conn, err := settings.Connection(ctx)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	log := util.NewLogger("delta")

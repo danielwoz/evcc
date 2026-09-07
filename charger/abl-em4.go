@@ -25,7 +25,6 @@ import (
 	"github.com/evcc-io/evcc/api"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/modbus"
-	"github.com/evcc-io/evcc/util/sponsor"
 )
 
 const (
@@ -76,10 +75,6 @@ func NewAblEm4(ctx context.Context, settings modbus.TcpSettings, connector uint1
 	conn, err := settings.Connection(ctx)
 	if err != nil {
 		return nil, err
-	}
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
 	}
 
 	log := util.NewLogger("abl-em4")

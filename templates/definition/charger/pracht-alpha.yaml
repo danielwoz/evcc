@@ -13,8 +13,6 @@ products:
     description:
       generic: PNI
 capabilities: ["dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["rs485", "tcpip"]

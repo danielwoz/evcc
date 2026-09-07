@@ -4,8 +4,6 @@ products:
     description:
       generic: AC Smart
 capabilities: ["rfid", "1p3p", "meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: host
 render: |

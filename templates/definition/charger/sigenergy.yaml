@@ -4,8 +4,6 @@ products:
     description:
       generic: EVAC series
 capabilities: ["mA", "meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["tcpip"]

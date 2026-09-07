@@ -7,8 +7,6 @@ products:
     description:
       generic: eProWallbox Move
 capabilities: ["mA", "meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: modbus
     choice: ["rs485"]

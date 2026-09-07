@@ -10,8 +10,6 @@ products:
     description:
       generic: Pro
 capabilities: ["rfid", "meter", "dim"]
-requirements:
-  evcc: ["sponsorship"]
 params:
   - name: id
     help:

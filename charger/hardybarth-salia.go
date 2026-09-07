@@ -33,7 +33,6 @@ import (
 	"github.com/evcc-io/evcc/charger/echarge/salia"
 	"github.com/evcc-io/evcc/util"
 	"github.com/evcc-io/evcc/util/request"
-	"github.com/evcc-io/evcc/util/sponsor"
 	"github.com/evcc-io/evcc/util/transport"
 	"github.com/hashicorp/go-version"
 )
@@ -97,10 +96,6 @@ func NewSalia(ctx context.Context, uri, user, password string, cache time.Durati
 		err := wb.GetJSON(wb.uri, &res)
 		return res, err
 	}, cache)
-
-	if !sponsor.IsAuthorized() {
-		return nil, api.ErrSponsorRequired
-	}
 
 	// set chargemode manual
 	res, err := wb.apiG.Get()
